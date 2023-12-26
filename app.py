@@ -194,3 +194,15 @@ if st.button("Train Models"):
     st.write("\nResults Sorted by Correlation:")
     sorted_results_df = results_df.sort_values(by='Correlation with CPI Change', ascending=False)
     st.table(sorted_results_df)
+
+    # Add a download button for the sorted results
+    if st.button("Download Results Sorted by Correlation"):
+        # Prepare the file for download
+        output_filename = "results_sorted_by_correlation.xlsx"
+        output_path = os.path.join("output", output_filename)  # Adjust the path as needed
+
+        # Save the sorted results to Excel
+        sorted_results_df.to_excel(output_path, index=False, sheet_name='Results')
+
+        # Provide a link for download
+        st.success(f"Download [Results Sorted by Correlation](sandbox:/output/{output_filename})")
