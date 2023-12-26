@@ -7,7 +7,6 @@ tensorflow
 numpy
 matplotlib
 seaborn
-torch torchvision
 scipy
 scikit-plot
 tensorboard
